@@ -10,6 +10,5 @@ module.exports = fs.existsSync(credentialsFile)
     ? JSON.parse(fs.readFileSync(credentialsFile))
     : {
         'viberAuthKey': process.env['viberAuthKey'],
-        'viberAdminAccount': process.env['viberAdminAccount'],
-        'viberTestAccount': process.env['viberTestAccount']
+        'viberAdminAccounts': JSON.parse(process.env['viberAdminAccounts'])
     };

@@ -1,17 +1,19 @@
-const Messanger = require('./src/messenger');
 const Secrets = require('./src/secrets');
+const UserFlow = require('./src/user-flow');
+const AdminFlow = require('./src/admin-flow');
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request!');
-    context.log('Request: ' + JSON.stringify(req, null, "    "));
+    context.log('Request: ' + JSON.stringify(req.body, null, "    "));
 
-    if (req.body && req.body.event === 'message') {
-        let response = await Messanger.sendMessage(
-            Secrets.viberAuthKey, 
-            req.body.sender.id, 
-            'Привет уважаемый ' + req.body.sender.name + '!');
+    if (req.body.event === 'message') {
+        const isAdmin = Secrets.viberAdminAccounts.includes(req.body.sender.id);
 
-        context.log('Message result: ' + JSON.stringify(response, null, "    "));
+        if (isAdmin) {
+            await AdminFlow.onMessage(req.body);
+        } else {
+            await UserFlow.onMessage(req.body);
+        }
     }
 
     context.res = { status: 200 };
