@@ -1,6 +1,6 @@
 # Project specific
-src/credentials*.json
-!src/credentials.example.json
+credentials*.json
+!credentials.example.json
 
 # Logs
 logs
