@@ -1,0 +1,25 @@
+{
+  "name": "viber-function",
+  "version": "1.0.0",
+  "description": "Viber bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anpur/viber-bot.git"
+  },
+  "author": "Anton Purin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anpur/viber-bot/issues"
+  },
+  "homepage": "https://github.com/anpur/viber-bot#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
