@@ -8,7 +8,7 @@ const body = {
         "id": Secrets.viberAdminAccounts[0],
         "name": "TestRequest"
     },
-    "text": "test"
+    "text": "Administrator"
 };
 
 AdminFlow.onMessage(body)
