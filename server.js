@@ -1,6 +1,6 @@
 const Messanger = require('./src/messenger');
-const Credentials = require('./src/credentials.json');
+const Secrets = require('./src/secrets');
 
-Messanger.sendMessage(Credentials.viberAuthKey, Credentials.viberTestAccount, "test")
+Messanger.sendMessage(Secrets.viberAuthKey, Secrets.viberTestAccount, "test")
     .then(response => console.log('Got response: ' + response))
     .catch(err => console.error(err));
