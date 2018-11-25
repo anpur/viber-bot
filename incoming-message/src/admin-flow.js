@@ -3,7 +3,7 @@ const Secrets = require('./secrets');
 
 module.exports = {
     "onMessage": async body => {
-        if (body.text === 'Administrator') {
+        if (body.message.text === 'Administrator') {
             return await Messanger.sendContact(
                 Secrets.viberAuthKey,
                 body.sender.id,
